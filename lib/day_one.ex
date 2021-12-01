@@ -21,9 +21,19 @@ defmodule DayOne do
     part1(chunks)
   end
 
-  def load_input(path) do
-    File.stream!(path, [:read])
-    |> Stream.map(&(&1 |> String.trim_trailing |> String.to_integer))
-    |> Enum.to_list
+  def solve(input_path, part) do
+    input_data = load_input(input_path)
+    case part do
+      :part1 -> part1(input_data)
+      :part2 -> part2(input_data)
+      _ -> nil
+    end
+  end
+
+  defp load_input(path) do
+    Util.load_input(
+      path,
+      &(&1 |> String.trim_trailing |> String.to_integer)
+    )
   end
 end
