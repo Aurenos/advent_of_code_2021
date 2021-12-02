@@ -9,6 +9,7 @@ defmodule DayTwo do
     distance * depth
   end
 
+  # Moves for Part 1
   defp move("forward " <> delta, {distance, depth}) do
     {distance + String.to_integer(delta), depth}
   end
@@ -21,6 +22,7 @@ defmodule DayTwo do
     {distance, depth + String.to_integer(delta)}
   end
 
+  # Moves for Part 2
   defp move("forward " <> delta, {distance, depth, aim}) do
     delta = String.to_integer(delta)
     {distance + delta, depth + (aim * delta), aim}
